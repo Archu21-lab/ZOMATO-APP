@@ -4,7 +4,6 @@ const jwt = require("jsonwebtoken");
 
 async function registrUser(req, res) {
   const { fullname, email, password } = req.body;
-
   const isAlreadyUserExist = await userModel.findOne({
     email,
   });
@@ -14,7 +13,7 @@ async function registrUser(req, res) {
       message: "user already exists",
     });
   }
-
+  
   const hashedPassword = await bcrypt.hash(password, 10);
 
   const user = await userModel.create({
@@ -42,13 +41,9 @@ async function registrUser(req, res) {
   });
 }
 
-async function loginUser(req,res) {
-
-
-  
-}
+async function loginUser(req, res) {}
 
 module.exports = {
   registrUser,
-  loginUser
-}
+  loginUser,
+};
