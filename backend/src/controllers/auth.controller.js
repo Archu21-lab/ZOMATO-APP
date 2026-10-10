@@ -13,7 +13,7 @@ async function registrUser(req, res) {
       message: "user already exists",
     });
   }
-  
+
   const hashedPassword = await bcrypt.hash(password, 10);
 
   const user = await userModel.create({
